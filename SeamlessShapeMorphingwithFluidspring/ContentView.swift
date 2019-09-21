@@ -9,8 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var morph = false
+    
     var body: some View {
-        Text("Hello World")
+        
+        Rectangle()
+            .frame(width: 300, height: 300)
+            .foregroundColor(morph ? .blue : .green)
+            .cornerRadius(morph ? 300/2 : 0)
+            .animation(.spring())
+            .onTapGesture {
+                self.morph.toggle()
+        }
+            
+        
     }
 }
 
